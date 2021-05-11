@@ -1,0 +1,48 @@
+{
+    "name": "henrijeret/harjutus-testimine-api",
+    "description": "Tarkvarasüsteemide testimise sissejuhatav ülesanne PHP API näitel.",
+    "homepage": "https://github.com/henrijeret/harjutus-testimine-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Henri Jeret",
+            "email": "henri.jeret@gmail.com",
+            "homepage": "https://github.com/henrijeret"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "pimple/pimple": "^3.2",
+        "slim/psr7": "^0.5.0",
+        "slim/slim": "^4.5",
+        "vlucas/phpdotenv": "^5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.0"
+        },
+        "sort-packages": true,
+        "process-timeout": 0
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-create-project-cmd": [
+            "php -r \"copy('.env.example', '.env');\"",
+            "php post-create-project-command.php"
+        ],
+        "start": "php -S localhost:8080 -t public public/index.php",
+        "test": "phpunit"
+    }
+}
